@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: percona-deployment
+  labels:
+    app: percona
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: percona
+  template:
+    metadata:
+      labels:
+        app: percona
+    spec:
+      containers:
+      - name: percona
+        image: percona:ps-5.7
+        command: ["sh","-c","chown -R 999:999 /var/lib/mysql"]
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: percona-persistent-storage
+          mountPath: /var/lib/mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root.password"
+        - name: MYSQL_DATABASE
+          value: "phpmyadmin"
+        - name: MYSQL_USER
+          value: "phpmyadmin"
+        - name: MYSQL_PASSWORD
+          value: "phpmyadmin"
+      volumes:
+      - name: percona-persistent-storage
+        persistentVolumeClaim:
+          claimName: percona-pv-claim
