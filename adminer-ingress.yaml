@@ -3,8 +3,14 @@ kind: Ingress
 metadata:
   name: adminer-ingress
   annotations:
-    nginx.com/sticky-cookie-services: "serviceName=adminer adminer_sid expires=2h path=/"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "nginx_cookie_id"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
+    #nginx.ingress.kubernetes.io/affinity-mode: persistent
+
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -14,5 +20,4 @@ spec:
           service:
             name: adminer
             port:
-              number: 80
-
+              number: 8080

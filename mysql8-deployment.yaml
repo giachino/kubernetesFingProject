@@ -23,14 +23,26 @@ spec:
         - name: mysql8-persistent-storage
           mountPath: /var/lib/mysql
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "root.password"
         - name: MYSQL_DATABASE
-          value: "phpmyadmin"
+          valueFrom:
+            configMapKeyRef:
+              name: mysql8-configmap
+              key: mysql_database
         - name: MYSQL_USER
-          value: "phpmyadmin"
+          valueFrom:
+            configMapKeyRef:
+              name: mysql8-configmap
+              key: mysql_user
         - name: MYSQL_PASSWORD
-          value: "phpmyadmin"
+          valueFrom:
+            secretKeyRef:
+              name: mysql8-secret
+              key: MYSQL_PASSWORD
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql8-secret
+              key: MYSQL_ROOT_PASSWORD
       volumes:
       - name: mysql8-persistent-storage
         persistentVolumeClaim:

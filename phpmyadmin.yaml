@@ -6,7 +6,7 @@ metadata:
   labels:
     app: phpmyadmin
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: phpmyadmin
@@ -23,6 +23,10 @@ spec:
           env:
             - name: PMA_ARBITRARY
               value: "1"
+            #- name: PMA_HOST
+            #  value: "mysql8.default.svc.cluster.local"
+            #- name: PMA_ABSOLUTE_URI
+            #  value: "http://localhost/pma"
 ---
 apiVersion: v1
 kind: Service
@@ -35,5 +39,5 @@ spec:
   selector:
     app: phpmyadmin
   ports:
-    - port: 8080
+    - port: 8888
       targetPort: 80
