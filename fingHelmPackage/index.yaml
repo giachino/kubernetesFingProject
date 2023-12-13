@@ -3,7 +3,7 @@ entries:
   fingHelmChart:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-12-13T10:53:03.845759-03:00"
+    created: "2023-12-13T10:56:12.5362379-03:00"
     description: FING - UdelaR - Proyecto de fin de curso.
     digest: cbda1d0f0752560753e02fc43b1c6843b4c2f763ac65f50a5b9837d582f2623c
     name: fingHelmChart
@@ -11,4 +11,4 @@ entries:
     urls:
     - https://github.com/giachino/kubernetesFingProject/tree/create_repo/fingHelmPackage/fingHelmChart-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-13T10:53:03.8451631-03:00"
+generated: "2023-12-13T10:56:12.5349624-03:00"
