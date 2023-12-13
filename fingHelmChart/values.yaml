@@ -11,6 +11,9 @@ mysql8:
   configMap:
     database: phpmyadmin
     user: phpmyadmin
+  secret:
+    root_pw: root.password
+    user_pw: phpmyadmin
   pv:
     capacity: 1Gi
     accessMode: ReadWriteOnce
