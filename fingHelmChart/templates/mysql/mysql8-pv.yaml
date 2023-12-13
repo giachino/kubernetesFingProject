@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql8-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{ .Values.mysql8.pv.capacity | default "1Gi" }}
+  accessModes:
+    - {{ .Values.mysql8.pv.accessMode | default "ReadWriteOnce" }}
+  hostPath:
+    path: {{ .Values.mysql8.pv.user | default "/tmp/mysql_pre" }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql8-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.mysql8.pv.capacity | default "1Gi" }}
+
+
