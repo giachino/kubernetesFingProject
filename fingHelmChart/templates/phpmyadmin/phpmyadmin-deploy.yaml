@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+  labels:
+    app: phpmyadmin
+spec:
+  replicas: {{ .Values.phpmyadmin.deploy.replicas | default "2" }}
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+        - name: phpmyadmin
+          image: phpmyadmin:latest
+          ports:
+            - containerPort: {{ .Values.phpmyadmin.deploy.port | default "80" }}
+          env:
+            - name: PMA_ARBITRARY
+              value: "1"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.phpmyadmin.deploy.port | default "80" }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 4
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.phpmyadmin.deploy.port | default "80" }}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 4
+            failureThreshold: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin
+  labels:
+    app: phpmyadmin
+spec:
+  type: LoadBalancer
+  selector:
+    app: phpmyadmin
+  ports:
+    - port: {{ .Values.phpmyadmin.deploy.servicePort | default "8888" }}
+      targetPort: {{ .Values.phpmyadmin.deploy.port | default "80" }}

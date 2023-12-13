@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql8-configmap
+data:
+  mysql_database: {{ .Values.mysql8.configMap.database | default "phpmyadmin" | quote }}
+  mysql_user: {{ .Values.mysql8.configMap.user | default "phpmyadmin" | quote }}
