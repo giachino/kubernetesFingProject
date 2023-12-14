@@ -68,8 +68,8 @@ que tiene cada POD (mysql8, adminer y phpmyadmin).
 |----------|----------|--------|-----|-----------|
 |mysql8:|||||
 |  |configMap:||||
-    database: phpmyadmin
-    user: phpmyadmin
+|  |  |database:| phpmyadmin| Nombre de la base de datos a crear si no lo está previamente.|
+|  |  |user:| phpmyadmin| Nombre de usuario a crear en la base anterior si no lo está previamente. A este usuario se le dan permisos máximos sobre la base especificada en el parámetro anterior.|
   secret:
     root_pw: root.password
     user_pw: phpmyadmin
