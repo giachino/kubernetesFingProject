@@ -11,6 +11,11 @@ Este proyecto genera un chart helm, el cual hace un despliege automático
 de una aplicación en tres capas en kubernetes.
 
 
+## Vista de alto nivel del deploy
+
+![Arquitectura](images/DiagramaKubernetes.svg)
+
+
 ## Instalación
 
 Para la instalación del mismo existen varias formas, las cuales se ven a continuación.
