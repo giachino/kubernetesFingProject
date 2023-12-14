@@ -14,20 +14,36 @@ Para la instalación del mismo existen varias formas, las cuales se ven a contin
 ### Desde un repositorio de charts
 
 
-    * Primero agregar el repositorio a los repositorios locales:
+Primero agregar el repositorio a los repositorios locales:
 
-    `helm repo add pruebaRepo https://github.com/giachino/kubernetesFingProject/raw/create_repo/fingHelmPackage`
+`helm repo add pruebaRepo https://github.com/giachino/kubernetesFingProject/raw/create_repo/fingHelmPackage`
 
-    Luego de agregar el repo con nombre "pruebaRepo" podemos instalar el chart en el paquete "fingHelmChart"
-    y hacer que localmente ese deploy tenga nombre "miDeploy":
+Luego de agregar el repo con nombre "pruebaRepo" podemos instalar el chart en el paquete "fingHelmChart"
+y hacer que localmente ese deploy tenga nombre "miDeploy":
 
-    `helm install miDeploy pruebaRepo/fingHelmChart`
+`helm install miDeploy pruebaRepo/fingHelmChart`
 
-    *Un archivo de chart local (helm install foo foo-0.1.1.tgz)
-    *Un directorio de chart descomprimido (helm install foo path/to/foo)
-    *Una URL completa (helm install foo https://example.com/charts/foo-1.2.3.tgz)
+### Desde un archivo de chart local
+
+Teniendo el package de forma local 
+
+`helm install miDeploy fingHelmChart-1.0.0.tgz`
+
+### Desde un directorio de chart descomprimido
+
+Si hacemos refencia al directorio raíz local del chart, podemos instalarlo así:
+
+`helm install miDeploy path/to/fingHelmChart`
+
+### Desde una URL completa
+
+Con la URL absoluta al archivo de package:
+
+`helm install miDeploy https://github.com/giachino/kubernetesFingProject/raw/create_repo/fingHelmPackage/fingHelmChart-1.0.0.tgz`
 
 
 ## Desintalación
 
-helm repo remove pruebaRepo
+Para desinstalar el chart que instalamos de nombre "miDeploy":
+
+`helm repo remove pruebaRepo`
