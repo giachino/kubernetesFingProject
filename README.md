@@ -64,8 +64,10 @@ Para desinstalar el chart que instalamos de nombre "miDeploy":
 Los parámetros que se pueden configurar son los que siguen, y están separados por cada tipo de aplicación
 que tiene cada POD (mysql8, adminer y phpmyadmin).
 
-mysql8:
-  configMap:
+|aplicación|componente|variable|valor|descripción|
+|----------|----------|--------|-----|-----------|
+|mysql8:|||||
+|  |configMap:||||
     database: phpmyadmin
     user: phpmyadmin
   secret:
