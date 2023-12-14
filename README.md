@@ -1,4 +1,4 @@
-! (https://www.fing.edu.uy/sites/default/files/2022-06/Logo_Fing%2BUdelar_horizontal_RGB.jpg)
+![FING - UDELAR](https://www.fing.edu.uy/sites/default/files/2022-06/Logo_Fing%2BUdelar_horizontal_RGB.jpg)
 
 # kubernetesFingProject
 
