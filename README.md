@@ -13,7 +13,7 @@ de una aplicación en tres capas en kubernetes.
 
 ## Vista de alto nivel del deploy
 
-![Arquitectura](images/DiagramaKubernetes.svg)
+![Arquitectura](images/DiagramaKubernetes.png)
 
 
 ## Instalación
