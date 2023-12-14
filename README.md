@@ -57,3 +57,32 @@ Con la URL absoluta al archivo de package:
 Para desinstalar el chart que instalamos de nombre "miDeploy":
 
 `helm repo remove pruebaRepo`
+
+
+## Configuración de parametros
+
+Los parámetros que se pueden configurar son los que siguen, y están separados por cada tipo de aplicación
+que tiene cada POD (mysql8, adminer y phpmyadmin).
+
+mysql8:
+  configMap:
+    database: phpmyadmin
+    user: phpmyadmin
+  secret:
+    root_pw: root.password
+    user_pw: phpmyadmin
+  pv:
+    capacity: 1Gi
+    accessMode: ReadWriteOnce
+    path: /tmp/mysql_pre2
+
+phpmyadmin:
+  deploy:
+    replicas: 4
+    port:
+    servicePort:
+adminer:
+  deploy:
+    replicas: 4
+    port:
+    servicePort:
