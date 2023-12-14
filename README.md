@@ -66,25 +66,24 @@ que tiene cada POD (mysql8, adminer y phpmyadmin).
 
 |aplicación|componente|variable|valor|descripción|
 |----------|----------|--------|-----|-----------|
-|mysql8:|||||
-|  |configMap:||||
+|mysql8:||||Variables para la base de datos.|
+|  |configMap:|||Parámetros específicos del ConfigMap|
 |  |  |database:| phpmyadmin| Nombre de la base de datos a crear si no lo está previamente.|
 |  |  |user:| phpmyadmin| Nombre de usuario a crear en la base anterior si no lo está previamente. A este usuario se le dan permisos máximos sobre la base especificada en el parámetro anterior.|
-  secret:
-    root_pw: root.password
-    user_pw: phpmyadmin
-  pv:
-    capacity: 1Gi
-    accessMode: ReadWriteOnce
-    path: /tmp/mysql_pre2
-
-phpmyadmin:
-  deploy:
-    replicas: 4
-    port:
-    servicePort:
-adminer:
-  deploy:
-    replicas: 4
-    port:
-    servicePort:
+|  |secret:|||Parámetros específicos del Secret|
+|  |  |root_pw:| root.password|password para el usuario root que se le configura al iniciar la base, si no lo está anteriormente.|
+|  |  |user_pw:| phpmyadmin|password para el usuario que se creó en la sección anterior del ConfigMap.|
+|  |pv:|||Parámetros específicos del PersistentVolume y del PersistentVolumeClaim.|
+|  |  |capacity:| 1Gi|Capacidad del PV y también del PVC, ya que el deploy hace que el PVC solicite el mismo tamaño del PV.|
+|  |  |accessMode:| ReadWriteOnce|Seleccionar el modo de escritura.|
+|  |  |path:| /tmp/mysql_pre2|En este caso el deploy utiliza storage local, y por eso se selecciona un directorio local para hacer de persistencia.|
+|phpmyadmin:||||Variables para los PODs de phpmyadmin|
+|  |deploy:|||Parámetros específicos del Deploy|
+|  |  |replicas:| 4|Cuantas réplicas levantamos en el deploy|
+|  |  |port:||Puerto en que se expone la aplicación. Por defecto 8080.|
+|  |  |servicePort:||Puerto en que se expone el servicio. Por defecto 8888.|
+|adminer:||||Variables para los PODs de adminer|
+|  |deploy:|||Parámetros específicos del Deploy|
+|  |  |replicas:| 4|Cuantas réplicas levantamos en el deploy|
+|  |  |port:||Puerto en que se expone el aplicación. Por defecto 80.|
+|  |  |servicePort:||Puerto en que se expone el servicio. Por defecto 8888.|
