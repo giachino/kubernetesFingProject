@@ -16,6 +16,19 @@ de una aplicación en tres capas en kubernetes.
 ![Arquitectura](images/DiagramaKubernetes.png)
 
 
+## Acceso a la aplicación frontend Adminer
+
+En este caso solo resta poner la password que se puede configurar en el chart (ver "Configuración de parametros").
+
+![Acceso Adminer](images/adminer.png)
+
+
+## Acceso a la aplicación frontend phpmyadmin
+
+En este caso solo resta poner la password que se puede configurar en el chart (ver "Configuración de parametros"). En el servidor se debe escribir a mano "mysql8.default.svc.cluster.local" ya que la imagen de docker utilizada no se le puede configurar como si se podía en la de adminer.
+
+![Acceso phpmyadmin](images/admphpmyadmininer.png)
+
 ## Instalación
 
 Para la instalación del mismo existen varias formas, las cuales se ven a continuación.
@@ -29,34 +42,34 @@ Primero agregar el repositorio a los repositorios locales:
 `helm repo add pruebaRepo https://github.com/giachino/kubernetesFingProject/raw/create_repo/fingHelmPackage`
 
 Luego de agregar el repo con nombre "pruebaRepo" podemos instalar el chart en el paquete "fingHelmChart"
-y hacer que localmente ese deploy tenga nombre "miDeploy":
+y hacer que localmente ese deploy tenga nombre "pruebalocal":
 
-`helm install miDeploy pruebaRepo/fingHelmChart`
+`helm install pruebalocal pruebaRepo/fingHelmChart`
 
 ### Desde un archivo de chart local
 
 Teniendo el package de forma local 
 
-`helm install miDeploy fingHelmChart-1.0.0.tgz`
+`helm install pruebalocal fingHelmChart-1.0.0.tgz`
 
 ### Desde un directorio de chart descomprimido
 
 Si hacemos refencia al directorio raíz local del chart, podemos instalarlo así:
 
-`helm install miDeploy path/to/fingHelmChart`
+`helm install pruebalocal path/to/fingHelmChart`
 
 ### Desde una URL completa
 
 Con la URL absoluta al archivo de package:
 
-`helm install miDeploy https://github.com/giachino/kubernetesFingProject/raw/create_repo/fingHelmPackage/fingHelmChart-1.0.0.tgz`
+`helm install pruebalocal https://github.com/giachino/kubernetesFingProject/raw/create_repo/fingHelmPackage/fingHelmChart-1.0.0.tgz`
 
 
 ## Desintalación
 
 Para desinstalar el chart que instalamos de nombre "miDeploy":
 
-`helm repo remove pruebaRepo`
+`helm repo remove pruebalocal`
 
 
 ## Configuración de parametros
