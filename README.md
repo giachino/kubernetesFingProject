@@ -27,7 +27,7 @@ En este caso solo resta poner la password que se puede configurar en el chart (v
 
 En este caso solo resta poner la password que se puede configurar en el chart (ver "Configuración de parametros"). En el servidor se debe escribir a mano "mysql8.default.svc.cluster.local" ya que la imagen de docker utilizada no se le puede configurar como si se podía en la de adminer.
 
-![Acceso phpmyadmin](images/admphpmyadmininer.png)
+![Acceso phpmyadmin](images/admphpmy.png)
 
 ## Instalación
 
