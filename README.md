@@ -36,6 +36,9 @@ Para la instalación del mismo existen varias formas, las cuales se ven a contin
 
 ### Desde un repositorio de charts
 
+> [!IMPORTANT]
+> Se ha detectado que cuando se agrega el repositorio (helm repo add) no da error, pero luego al hacer helm install falla con un error que dice que el archivo descargado no tiene el formato correcto para un package.
+
 
 Primero agregar el repositorio a los repositorios locales:
 
