@@ -80,6 +80,9 @@ Para desinstalar el chart que instalamos de nombre _"miDeploy"_:
 Los parámetros que se pueden configurar son los que siguen, y están separados por cada tipo de aplicación
 que tiene cada POD (_mysql8_, _adminer_ y _phpmyadmin_).
 
+> [!TIP]
+> Todas las variables definidas tienen un valor por defecto, que se define dentro del archivo [values.yaml](fingHelmChart/values.yaml).
+>
 |**Aplicación**|**Componente**|**Variable**|**Valor**|**Descripción**|
 |----------|----------|--------|-----|-----------|
 |_mysql8:_||||Variables para la base de datos.|
