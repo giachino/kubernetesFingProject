@@ -1,6 +1,6 @@
 ![FING - UDELAR](https://www.fing.edu.uy/sites/default/files/2022-06/Logo_Fing%2BUdelar_horizontal_RGB.jpg)
 
-![kubernetes](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/247px-Kubernetes_logo_without_workmark.svg.png) ![HELM](https://helm.sh/img/helm.svg)
+![kubernetes](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/247px-Kubernetes_logo_without_workmark.svg.png|width=100) ![HELM](https://helm.sh/img/helm.svg|width=100)
 
 
 # kubernetesFingProject
