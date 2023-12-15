@@ -81,7 +81,7 @@ Los parámetros que se pueden configurar son los que siguen, y están separados 
 que tiene cada POD (_mysql8_, _adminer_ y _phpmyadmin_).
 
 > [!TIP]
-> Todas las variables definidas tienen un valor por defecto, que se define dentro del archivo [values.yaml](fingHelmChart/values.yaml).
+> Todas las variables definidas dentro del archivo [values.yaml](fingHelmChart/values.yaml) tienen un valor por defecto, que se define en los .yaml restantes. Esto puede identificarse por lineas similares a esta: _{{ .Values.mysql8.pv.accessMode | default "ReadWriteOnce" }}_
 >
 |**Aplicación**|**Componente**|**Variable**|**Valor**|**Descripción**|
 |----------|----------|--------|-----|-----------|
