@@ -10,6 +10,8 @@ Proyecto de fin de curso kubernetes - Facultad de Ingeniería - UdelarR
 Este proyecto genera un chart helm, el cual hace un despliege automático 
 de una aplicación en tres capas en kubernetes.
 
+> [!TIP]
+> SE SUGUIERE LA LECTURA DE EL DOCUMENTO [Reporte Técnico](Reporte_Tecnico__Kubernetes.pdf) QUE DESCRIBE LA MOTIVACIÓN DE LA ARQUITECTURA, LOS RETOS ENFRENTADOS, LOS CONCEPTOS Y ESTRUCTURAS UTILIZADOS Y LA ARGUMENTACIÓN DE LA ELECCIÓN DE TODOS LOS COMPONENTES Y CONFIGURACIONES.
 
 ## Vista de alto nivel del deploy
 
