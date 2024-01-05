@@ -6,6 +6,7 @@ metadata:
   labels:
     app: adminer
 spec:
+  serviceName: adminer
   replicas: 3
   revisionHistoryLimit: 1
   selector:
